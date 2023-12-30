@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": [
+      "vite/client",
+      "vite-plugin-svgr/client"
+    ],
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "allowJs": true,
+    "alwaysStrict": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "pretty": true,
+
+    /* Extra */
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"],
+      "@components/*": ["components/*"],
+      "@images/*": ["assets/img/*"],
+      "@utils/*": ["utils/*"],
+      "@services/*": ["services/*"],
+    }
+  },
+  "include": [
+    "src",
+    "src/types/index.d.ts",
+    "vite.config.ts",
+    "postcss.config.js",
+    ".eslintrc.cjs",
+    ".prettierrc",
+    ".svgrrc.js"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }],
+}

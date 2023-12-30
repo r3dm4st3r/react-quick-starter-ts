@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --font-base: 'Montserrat', sans-serif;
+    color-scheme: var(--mantine-color-scheme);
+}
+
+html, body {
+    font-family: var(--font-base);
+}
+
+html[data-mantine-color-scheme="dark"] body {
+    background-color: #1c1c1e;
+}
+html[data-mantine-color-scheme="light"] body {
+    background-color: #ebebf5;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
