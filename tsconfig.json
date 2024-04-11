@@ -30,6 +30,10 @@
     "incremental": true,
     "pretty": true,
 
+    /* Misc */
+    "composite": true,
+    "allowSyntheticDefaultImports": true,
+
     /* Extra */
     "baseUrl": "./src",
     "paths": {
@@ -49,5 +53,4 @@
     ".prettierrc",
     ".svgrrc.js"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }],
 }
