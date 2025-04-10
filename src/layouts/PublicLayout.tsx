@@ -1,10 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
+import { Fragment } from 'react';
 
 const PublicLayout = () => {
   return (
-    <div>
+    <Fragment>
       <Outlet />
-    </div>
+    </Fragment>
   );
 };
 

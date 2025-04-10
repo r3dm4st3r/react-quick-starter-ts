@@ -1,4 +1,3 @@
-import theme from '@/theme';
 import { FC } from 'react';
 import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
@@ -8,11 +7,12 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { LSColorSchemeManager } from '@/theme/manager/LSColorSchemeManager.ts';
 import { routes } from '@/routes';
+import { theme } from '@/theme';
 
 export const appMode: 'light' | 'dark' | 'auto' = 'auto';
 
 const LSSchemeManager = LSColorSchemeManager({
-  key: 'color-scheme'
+  key: 'theme'
 });
 
 const App: FC = () => {
@@ -25,6 +25,9 @@ const App: FC = () => {
           defaultColorScheme={appMode}
           colorSchemeManager={LSSchemeManager}
           withCssVariables
+          deduplicateCssVariables
+          withGlobalClasses
+          withStaticClasses
         >
           <RouterProvider router={routes} />
         </MantineProvider>

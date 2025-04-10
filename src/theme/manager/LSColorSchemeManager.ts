@@ -1,21 +1,21 @@
 import {
   isMantineColorScheme,
   MantineColorScheme,
-  MantineColorSchemeManager,
-} from "@mantine/core";
+  MantineColorSchemeManager
+} from '@mantine/core';
 
 export interface LSColorManagerOptions {
   key?: string;
 }
 
 export const LSColorSchemeManager = ({
-  key = "color-scheme",
+  key = 'scheme'
 }: LSColorManagerOptions = {}): MantineColorSchemeManager => {
   let handleStorageEvent: (event: StorageEvent) => void;
 
   return {
-    get: (defaultValue) => {
-      if (typeof window === "undefined") {
+    get: defaultValue => {
+      if (typeof window === 'undefined') {
         return defaultValue;
       }
 
@@ -29,31 +29,32 @@ export const LSColorSchemeManager = ({
       }
     },
 
-    set: (value) => {
+    set: value => {
       try {
         window.localStorage.setItem(key, value);
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.warn("LS Manager was unable to save color scheme.", error);
+        console.warn('LS Manager was unable to save color scheme.', error);
       }
     },
 
-    subscribe: (onUpdate) => {
-      handleStorageEvent = (event) => {
+    subscribe: onUpdate => {
+      handleStorageEvent = event => {
         if (event.storageArea === window.localStorage && event.key === key) {
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           isMantineColorScheme(event.newValue) && onUpdate(event.newValue);
         }
       };
 
-      window.addEventListener("storage", handleStorageEvent);
+      window.addEventListener('storage', handleStorageEvent);
     },
 
     unsubscribe: () => {
-      window.removeEventListener("storage", handleStorageEvent);
+      window.removeEventListener('storage', handleStorageEvent);
     },
 
     clear: () => {
       window.localStorage.removeItem(key);
-    },
+    }
   };
 };

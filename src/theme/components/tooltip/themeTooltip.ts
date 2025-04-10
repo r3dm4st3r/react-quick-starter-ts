@@ -1,10 +1,11 @@
 import { MantineThemeComponents, Tooltip } from '@mantine/core';
 
-export const themeTooltip: MantineThemeComponents = {
+export const themeTooltip: Partial<MantineThemeComponents> = {
   Tooltip: Tooltip.extend({
     defaultProps: {
       withArrow: true,
-      arrowSize: 10,
+      arrowSize: 8,
+      arrowOffset: 10,
       transitionProps: {
         transition: 'pop'
       }

@@ -1,14 +1,19 @@
-import { createTheme, MantineThemeOverride } from '@mantine/core';
-import { ThemeComponents } from '@/theme/components';
-import { ThemeColors } from '@/theme/components/colors.ts';
+import {
+  createTheme,
+  DEFAULT_THEME,
+  MantineThemeOverride,
+  mergeMantineTheme
+} from '@mantine/core';
+import { themeComponents } from '@/theme/components';
+import { themeColors } from '@/theme/colors.ts';
 
-const theme: MantineThemeOverride = createTheme({
+export const themeOverride: MantineThemeOverride = createTheme({
   fontFamily: 'var(--base-font)',
-  colors: ThemeColors,
-  defaultRadius: 'sm',
+  colors: themeColors,
   primaryColor: 'theme',
   primaryShade: 7,
-  components: ThemeComponents
+  cursorType: 'pointer',
+  components: themeComponents
 });
 
-export default theme;
+export const theme = mergeMantineTheme(DEFAULT_THEME, themeOverride);
