@@ -5,6 +5,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 export const persist = persistStore(store);
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const baseAppReducer = (state: any, action: any) => {
   return appReducer(state, action);
 };

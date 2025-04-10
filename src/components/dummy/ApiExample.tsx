@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import {
   ActionIcon,
+  Box,
   Button,
-  Group,
+  Flex,
   List,
   ListItem,
   Paper,
@@ -53,64 +54,59 @@ const ApiExample: FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {data?.map(item => {
             return (
-              <Paper
-                key={item?.id}
-                shadow="xs"
-                p="xl"
-                w="100%"
-                className="flex flex-col justify-between gap-5"
-              >
-                <div>
-                  <ActionIcon variant="light" size={70} radius="50%" mb={15}>
-                    <IconBrandGithub size={30} stroke={1.5} />
-                  </ActionIcon>
-                  <Text
-                    fz={20}
-                    lineClamp={1}
-                    fw={600}
-                    className="capitalize"
-                    mb={10}
-                  >
-                    {item?.name?.replaceAll('-', ' ')}
-                  </Text>
-                  <Text fz={14}>{item?.description}</Text>
-                  <List mt={20}>
-                    <ListItem>
-                      Updated : {dayjs(item?.pushed_at).format('DD-MM-YYYY')}
-                    </ListItem>
-                    <ListItem>
-                      License : {item?.license?.spdx_id ?? 'MIT'}
-                    </ListItem>
-                  </List>
-                </div>
-
-                <Group gap={10}>
-                  <Button
-                    component="a"
-                    href={item?.html_url}
-                    target="_blank"
-                    size="md"
-                    fullWidth
-                    variant="light"
-                    color="orange"
-                    leftSection={<IconBrandGithub stroke={1.5} />}
-                  >
-                    Github
-                  </Button>
-                  {item?.homepage && (
+              <Paper key={item?.id} shadow="xs" p="xl" w="100%">
+                <Box className="flex h-full justify-between flex-col">
+                  <Box>
+                    <ActionIcon variant="light" size={70} radius="50%" mb={15}>
+                      <IconBrandGithub size={30} stroke={1.5} />
+                    </ActionIcon>
+                    <Text
+                      fz={20}
+                      lineClamp={1}
+                      fw={600}
+                      className="capitalize"
+                      mb={10}
+                    >
+                      {item?.name?.replaceAll('-', ' ')}
+                    </Text>
+                    <Text fz={14}>{item?.description}</Text>
+                    <List mt={20}>
+                      <ListItem>
+                        Updated : {dayjs(item?.pushed_at).format('DD-MM-YYYY')}
+                      </ListItem>
+                      <ListItem>
+                        License : {item?.license?.spdx_id ?? 'MIT'}
+                      </ListItem>
+                    </List>
+                  </Box>
+                  <Flex mt="md" gap={10}>
                     <Button
                       component="a"
-                      href={item?.homepage}
+                      href={item?.html_url}
                       target="_blank"
                       size="md"
-                      variant="light"
                       fullWidth
-                      leftSection={<IconEyeBolt stroke={1.5} />}
+                      variant="light"
+                      color="orange"
+                      leftSection={<IconBrandGithub stroke={1.5} />}
                     >
-                      Live
+                      Github
                     </Button>
-                  )}
-                </Group>
+                    {item?.homepage && (
+                      <Button
+                        component="a"
+                        href={item?.homepage}
+                        target="_blank"
+                        size="md"
+                        variant="light"
+                        fullWidth
+                        leftSection={<IconEyeBolt stroke={1.5} />}
+                      >
+                        Live
+                      </Button>
+                    )}
+                  </Flex>
+                </Box>
               </Paper>
             );
           })}

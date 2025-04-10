@@ -13,11 +13,11 @@ const persistConfig = {
   key: 'pro',
   storage: storage,
   stateReconciler: hardSet,
-  whitelist: ['config'],
+  whitelist: ['auth', 'config'],
   debug: import.meta.env.MODE === 'development',
   transforms: [
     encryptTransform({
-      secretKey: '336205c57461932b98e543c228f236fb077',
+      secretKey: '336205c57461932b98e543c228f236fb077', // Move and update this key in .env
       onError: function (error) {
         console.log('Critical Error Transforming Encrypted Data ==>', error);
       }

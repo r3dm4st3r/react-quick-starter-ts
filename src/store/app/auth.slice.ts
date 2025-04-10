@@ -20,7 +20,7 @@ const initialState: IAuthSlice = {
 };
 
 export const authSlice = createSlice({
-  name: 'config',
+  name: 'auth',
   initialState,
   reducers: {
     SET_AUTH_TOKEN: (state, action: PayloadAction<IAuthToken>) => ({

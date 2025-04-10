@@ -10,6 +10,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      '@tabler/icons-react': '@tabler/icons-react/dist/esm/icons/index.mjs',
       '@': path.resolve(__dirname, './src'),
       '@components': path.resolve(__dirname, './src/components'),
       '@images': path.resolve(__dirname, './src/assets/img'),

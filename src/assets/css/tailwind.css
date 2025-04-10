@@ -1,8 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap')
+layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@utility container {
+  padding-inline: 1rem;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 *, ::before, ::after {
     box-sizing: border-box;
@@ -14,7 +27,7 @@
 }
 
 html, body {
-    font-family: var(--font-base);
+    font-family: var(--font-base), sans-serif;
 }
 
 html[data-mantine-color-scheme="dark"] body {

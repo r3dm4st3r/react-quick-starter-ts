@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Avatar, Image, Paper, Text, Tooltip } from '@mantine/core';
+import { Avatar, Button, Image, Paper, Text, Tooltip } from '@mantine/core';
 import Redux from '@images/logo/redux-logo.svg';
 import Mantine from '@images/logo/mantine-logo.svg';
 import React from '@images/logo/react-logo.svg';
@@ -57,6 +57,13 @@ const Welcome = () => {
               </Text>
             </div>
           </div>
+          <div className="grid grid-cols-1">
+            <div className="text-center mb-5">
+              <Button component={Link} to="/contact">
+                Contact
+              </Button>
+            </div>
+          </div>
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
             {techStacks.map(stack => {
               return (
@@ -71,7 +78,7 @@ const Welcome = () => {
                     }
                   }}
                 >
-                  <Paper p="xl" shadow="xs">
+                  <Paper p="xl" shadow-sm="xs">
                     <Image
                       maw={100}
                       mx="auto"
